@@ -77,6 +77,14 @@
 			$l=intval(date('m',strtotime("$r month")));
 			$y=intval(date('Y',strtotime("$r month")));
 			calendar($l,$y);
+			$event=[];
+			$i=0;
+			$file=fopen("events.txt","r");
+			while(!feof($file)){
+				$event[$i]=fgets($file);
+				$i++;
+			}
+			fclose($file);
 		?>
 		<table>
 			<tr>
