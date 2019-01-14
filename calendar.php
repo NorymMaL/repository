@@ -7,7 +7,7 @@
 		}
 		table{
 			border-collapse:collapse;
-			width:33%;
+			width:70%;
 			text-align:center;
 		}
 		th{
@@ -97,7 +97,8 @@
 			}
 			$l=intval(date('m',strtotime("$r month")));
 			$y=intval(date('Y',strtotime("$r month")));
-			$file=@fopen("events.txt","r");
+			$filename="events_".(string)$l."_".(string)$y.".txt";
+			$file=@fopen($filename,"r");
 			$events=[];
 			$time=[];
 			$times=[];
@@ -112,9 +113,10 @@
 				fclose($file);
 			}
 			foreach($events as $p=>$q){
-				$time[$p]=strstr($events[$p],' ',true); //the part of string before first occurence of ' '
+				$time[$p]=strstr($events[$p],':',true); //the part of string before first occurence of ' '
 				$time[$p]=str_replace('&',',',$time[$p]); //replace '&' with ','
-				$events[$p]=strstr($events[$p],' '); //the part of string after (inclusive) first occurence of ' '
+				$time[$p]=str_replace(' ','',$time[$p]); //replace ' ' with ''
+				$events[$p]=strstr($events[$p],':'); //the part of string after (inclusive) first occurence of ' '
 				$events[$p]=substr($events[$p],1); //remove first character ' ' from string
 			}
 			//print_r($time);
