@@ -1,0 +1,17 @@
+P : Public Holiday (1 for True, empty for False)
+S : School Holiday (1 for True, empty for False)
+E : School Event Day (1 for True, empty for False)
+
+Format:
+
+C P S E Comment
+
+Format of Comment:
+a,b-c&d xxxevent (exempli gratia)
+where a,b,c and d can be expressed as dd or dd/mm
+
+To do:
+Ignore C.																																V
+Fetch P,S,E.																															V
+Turn "a,b-c&d xxxevent		a-b,c&d xxyevent" into Array("a"=>Array("xxxevent","xxyevent"),...,"d"=>Array("xxxevent","xxyevent"))		X
+Dump into bigcal.php																													Partially done
