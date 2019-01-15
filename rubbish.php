@@ -171,14 +171,21 @@
 					$ref[$i]=substr($ref[$i],2);
 					$reff[$i]["comment"]=$ref[$i];
 				}
-				$time=[];
+				/*$time=[]; //this whole thing is rubbish code
 				$times=[];
 				foreach($reff as $i=>$j){
-					$time[$i]=strstr($reff[$i]["comment"],':',true); //the part of string before first occurence of ' '
-					$time[$i]=str_replace('&',',',$time[$i]); //replace '&' with ','
-					$time[$i]=str_replace(' ','',$time[$i]); //replace ' ' with ''
-					$reff[$i]["comment"]=strstr($reff[$i]["comment"],':'); //the part of string after (inclusive) first occurence of ' '
-					$reff[$i]["comment"]=substr($reff[$i]["comment"],1); //remove first character ' ' from string
+					if(strpos($reff[$i]["comment"],':')!==false){
+						$time[$i]=strstr($reff[$i]["comment"],':',true); //the part of string before first occurence of ' '
+						$time[$i]=str_replace('&',',',$time[$i]); //replace '&' with ','
+						$time[$i]=str_replace(' ','',$time[$i]); //replace ' ' with ''
+						$reff[$i]["comment"]=strstr($reff[$i]["comment"],':'); //the part of string after (inclusive) first occurence of ' '
+						$reff[$i]["comment"]=substr($reff[$i]["comment"],1); //remove first character ' ' from string
+					}
+					else{
+						if(!empty($reff[$i]["comment"])&&$reff[$i]["comment"]!=" "){
+							
+						}
+					}
 				}
 				//print_r($time);
 				//echo "<br><br>";
@@ -209,8 +216,8 @@
 					}
 					sort($times[$i]);
 				}
-				print_r($times);
-				echo "<br><br>";
+				//print_r($times);
+				//echo "<br><br>";
 				$aaa=array(array());
 				foreach($reff as $i=>$j){
 					foreach($times[$i] as $s=>$o){
@@ -226,7 +233,7 @@
 				}
 				print_r($aaa);
 				echo "<br><br>";
-				print_r($reff);
+				print_r($reff);*/
 				f($r,$y,$reff);
 			?>
 		<!-- </div> -->
